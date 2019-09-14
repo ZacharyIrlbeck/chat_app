@@ -1,10 +1,9 @@
 class BroadcastMessageJob < ApplicationJob
   queue_as :default
 
-  def perform(msg)
-
+  def perform(message)
+    msg = "#{message.user.username}:#{message.msg}"
     ActionCable.server.broadcast "messages", 
-      msg: msg,
-      usr: msg.user.username
+      msg: msg  
   end
 end

@@ -4,7 +4,7 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
   received: function(data) {
   	const messages = document.querySelector(".messages")
   	const message = document.createElement("div")
-  	message.innerText = `${data.usr}:${data.msg.msg}`
+  	message.innerText = data.msg
   	message.classList.add('msg')
   	messages.append(message)
   }
