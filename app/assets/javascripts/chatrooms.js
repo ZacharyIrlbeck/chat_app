@@ -3,6 +3,11 @@
 App.messages = App.cable.subscriptions.create("MessagesChannel", {
   received: function(data) {
   	console.log(data)
+  	const messages = document.querySelector(".messages")
+  	const message = document.createElement("div")
+  	message.innerText = `${data.usr}:${data.msg.msg}`
+  	message.classList.add('msg')
+  	messages.append(message)
   }
 })
 

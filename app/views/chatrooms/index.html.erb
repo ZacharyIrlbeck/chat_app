@@ -6,8 +6,7 @@
 	  <div class="messages">
 	  	<% @chatroom.messages.each do |message| %>
 	  	  <div class="message">
-	  	    <%= message.user.username %>	
-	  	  	<%= message.msg %>
+	  	    <%= message.user.username %>:<%= message.msg %>
 	  	  </div>
 	  	<% end %>
 	  </div>

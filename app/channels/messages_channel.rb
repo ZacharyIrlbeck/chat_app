@@ -4,12 +4,10 @@ class MessagesChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-  	puts "Current User ========================="
-  	puts current_user
-  	message = Message.new
-  	message.msg = data['msg']
-  	message.user = current_user
-  	message.chatroom = Chatroom.first
-  	message.save!
+    Message.create(
+    	msg: data['msg'],
+    	user: current_user,
+    	chatroom: Chatroom.first
+    )
   end 
 end 
