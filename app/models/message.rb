@@ -3,6 +3,6 @@ class Message < ApplicationRecord
   belongs_to :chatroom
 
   after_create_commit{
-    MessageBroadcastJob.perform_later(self)
+    BroadcastMessageJob.perform_later(self)
   }
 end

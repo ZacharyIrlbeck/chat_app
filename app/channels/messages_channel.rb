@@ -9,5 +9,9 @@ class MessagesChannel < ApplicationCable::Channel
     	user: current_user,
     	chatroom: Chatroom.first
     )
+  end
+
+  def unsubscribe
+    
   end 
 end 
