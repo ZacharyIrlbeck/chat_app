@@ -10,8 +10,4 @@ class MessagesChannel < ApplicationCable::Channel
     	chatroom: Chatroom.first
     )
   end
-
-  def unsubscribe
-    
-  end 
 end 
