@@ -1,8 +1,11 @@
 class BroadcastLoginJob < ApplicationJob
   queue_as :default
 
-  def perform(usr)
-  	msg = "#{usr.username} has joined the chat"
-    ActionCable.server.broadcast "users", msg: msg
+  def perform(user)
+  	user.update(active: true)
+    ActionCable.server.broadcast "users",
+      userid: user.id,
+      active: user.active,
+      username: user.username
   end
 end

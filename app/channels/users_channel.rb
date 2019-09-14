@@ -1,5 +1,5 @@
 class UsersChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room#{params['room']}users"
+    stream_from "users"
   end
 end

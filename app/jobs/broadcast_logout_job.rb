@@ -1,8 +1,11 @@
 class BroadcastLogoutJob < ApplicationJob
   queue_as :default
 
-  def perform(usr)
-  	msg = "#{usr.username} has left the chat"
-    ActionCable.server.broadcast "users", msg: msg
+  def perform(user)
+  	user.update(active: false)
+    ActionCable.server.broadcast "users",
+      userid: user.id,
+      active: user.active,
+      username: user.username
   end
 end

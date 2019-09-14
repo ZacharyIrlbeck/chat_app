@@ -2,7 +2,6 @@
 	<h1>WhatsUpApp</h1>
 	<h2><%= @chatroom.name %></h2>
 
-
 	<div class="messages" data-room="<%= @chatroom.id %>">
 		<% @chatroom.messages.each do |message| %>
 		  <%= render "/messages/message", message: message %>
