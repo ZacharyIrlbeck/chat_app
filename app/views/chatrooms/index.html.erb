@@ -1,2 +1,20 @@
-<h1>Chatrooms#index</h1>
-<p>Find me in app/views/chatrooms/index.html.erb</p>
+<div class="container">
+	<h1>WhatsUpApp</h1>
+	<h2><%= @chatroom.name %></h2>
+
+	<% if @chatroom.messages.present? %>
+	  <div class="messages">
+	  	<% @chatroom.messages.each do |message| %>
+	  	  <div class="message">
+	  	    <%= message.user.username %>	
+	  	  	<%= message.msg %>
+	  	  </div>
+	  	<% end %>
+	  </div>
+	<% end %>
+
+	<form>
+		<input type="text" name="message">
+		<button type="submit">Submit</button>
+	</form>
+</div>
