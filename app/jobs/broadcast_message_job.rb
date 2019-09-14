@@ -3,7 +3,7 @@ class BroadcastMessageJob < ApplicationJob
 
   def perform(message)
     msg = "#{message.user.username}:#{message.msg}"
-    ActionCable.server.broadcast "messages", 
+    ActionCable.server.broadcast "room#{message.chatroom.id}messages", 
       msg: msg  
   end
 end

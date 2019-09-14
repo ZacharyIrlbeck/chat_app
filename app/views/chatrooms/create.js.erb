@@ -1,0 +1,4 @@
+// const chatrooms = document.querySelector(".chatrooms")
+// chatrooms.append(<%= j render(partial: 'chatrooms/chatroom_item', locals: { chatroom: @chatroom }) %>)
+
+$('.chatrooms').append("<%= j render(partial: 'chatrooms/chatroom_item', locals: { chatroom: @chatroom }) %>")

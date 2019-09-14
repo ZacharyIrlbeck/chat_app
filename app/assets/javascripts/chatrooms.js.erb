@@ -1,0 +1,44 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js
+
+function handleMessage(data){
+		const messages = document.querySelector(".messages")
+		const message = document.createElement("div")
+		message.innerText = data.msg
+		message.classList.add('msg')
+		messages.append(message)
+}
+
+// function handleMessage(data){
+//   $('.messages').append("")
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // const messageInput = document.querySelector("input[name='message']")
+  const id = document.querySelector(".messages").dataset.room
+
+  // messageInput.addEventListener("keydown", (event) => {
+  // 	if(event.keyCode === 13){
+  // 		event.preventDefault()
+  // 		msg = event.target.value
+  // 		App[`room${id}users`].send({msg: msg, id: id})
+  // 		event.target.value = ""
+  // 	}
+  // })
+
+  App[`room${id}messages`] = App.cable.subscriptions.create(
+    {
+      channel: "MessagesChannel",
+      room: id
+    }, {
+    received: data => handleMessage(data)
+  })
+
+  // App[`room${id}users`] = App.cable.subscriptions.create(
+  //   {
+  //     channel: "UsersChannel",
+  //     room: id,
+  //   }, {
+  //   received: data => handleMessage(data)
+  // })
+})

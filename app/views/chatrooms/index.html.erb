@@ -1,22 +1,12 @@
-<div class="container">
-	<h1>WhatsUpApp</h1>
-	<h2><%= @chatroom.name %></h2>
+<h1>ChatRooms</h1>
 
-	<% if @chatroom.messages.present? %>
-	  <div class="messages">
-	  	<% @chatroom.messages.each do |message| %>
-	  	  <div class="message">
-	  	    <%= message.user.username %>:<%= message.msg %>
-	  	  </div>
-	  	<% end %>
-	  </div>
+<%= simple_form_for Chatroom.new, remote: true do |form| %>
+  <%= form.input :name %>
+  <%= form.submit %>
+<% end %>
+
+<div class="chatrooms">
+	<% @chatrooms.each do |chatroom| %>
+    <%= render "chatrooms/chatroom_item", chatroom: chatroom %>
 	<% end %>
-
-	<form>
-		<input type="text" name="message">
-		<button type="submit">Submit</button>
-	</form>
 </div>
-
-
-<%= javascript_include_tag "chatrooms.js" %>
