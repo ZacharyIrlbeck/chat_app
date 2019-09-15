@@ -1,18 +1,25 @@
-<div class="container">
-	<h1>WhatsUpApp</h1>
-	<h2><%= @chatroom.name %></h2>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-3">
+			<%= render partial: 'shared/users' %>
+		</div>
+		<div class="col">
+			<h2><%= @chatroom.name %></h2>
 
-	<div class="messages" data-room="<%= @chatroom.id %>">
-		<% @chatroom.messages.each do |message| %>
-		  <%= render "/messages/message", message: message %>
-		<% end %>
+			<div class="messages" data-room="<%= @chatroom.id %>">
+				<% @chatroom.messages.each do |message| %>
+				  <%= render "/messages/message", message: message %>
+				<% end %>
+			</div>
+
+			<%= simple_form_for Message.new, remote: true do |form| %>
+		     <%= form.input :msg, label: false %>
+		     <%= form.hidden_field :chatroom_id, value: @chatroom.id %>
+			<% end %>
+    </div>
 	</div>
-
-	<%= simple_form_for Message.new, remote: true do |form| %>
-     <%= form.input :msg, label: false %>
-     <%= form.hidden_field :chatroom_id, value: @chatroom.id %>
-	<% end %>
 </div>
-
+	
+	
 
 <%= javascript_include_tag "chatrooms.js" %>

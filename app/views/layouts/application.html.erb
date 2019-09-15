@@ -20,16 +20,7 @@
         <% end %>
       </ul>
     </nav>
-    <div class="row">
-      <div id="userList" class="col-4">
-        <% User.active.each do |user| %>
-          <%= render partial: "shared/user", locals: {user: user} if user != current_user %>
-        <% end %>
-      </div>
-      <div class="col-8">
-        <%= yield %>
-      </div>
-    </div>
-    
+
+    <%= yield %>
   </body>
 </html>
