@@ -1,0 +1,10 @@
+<div class="active-users-wrapper">
+	<p class="active-users">Active Users</p>
+	<div id="userList" class="col-4">
+		<% User.active.each do |user| %>
+		  <%= render partial: "shared/user", locals: {user: user} if user != current_user %>
+		<% end %>
+	</div>
+</div>
+
+<%= javascript_include_tag "users" %>

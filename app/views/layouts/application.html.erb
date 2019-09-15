@@ -10,26 +10,8 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <% if current_user %>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
-          <li><%= link_to "Home", root_path %></li>
-        <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-    <div class="row">
-      <div id="userList" class="col-4">
-        <% User.active.each do |user| %>
-          <%= render partial: "shared/user", locals: {user: user} if user != current_user %>
-        <% end %>
-      </div>
-      <div class="col-8">
-        <%= yield %>
-      </div>
-    </div>
-    
+    <%= render partial: 'shared/navbar' %>
+
+    <%= yield %>
   </body>
 </html>

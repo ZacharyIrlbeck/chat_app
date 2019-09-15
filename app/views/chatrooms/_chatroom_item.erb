@@ -1,5 +1,4 @@
-<div data-id="<%= chatroom.id %>"class="chatroom">
-	<%= chatroom.name %>
-	<%= link_to "Delete", chatroom_path(chatroom), method: :delete, remote: true %>
-	<%= link_to "Join", chatroom_path(chatroom), method: :get %>
+<div data-id="<%= chatroom.id %>" class="chatroom">
+	<%= link_to "x", chatroom_path(chatroom), method: :delete, remote: true, class: 'close' %>
+	<%= link_to chatroom.name, chatroom_path(chatroom), method: :get, class: 'chatroom-link' %>
 </div>
