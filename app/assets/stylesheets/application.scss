@@ -1,1 +1,108 @@
-@import "bootstrap"
+@import "bootstrap";
+
+.light-navbar{
+  padding: 20px;
+}
+
+.navbar-list{
+  display: flex;
+  padding: 0px;
+  justify-content: space-between;
+  list-style-type: none;
+  width: 100%;	
+}
+
+.navbar-list li{
+  text-decoration: none;
+}
+
+.active-users-wrapper{
+  font-weight: lighter;
+}
+
+#userList{
+  text-align: center;
+}
+
+#userList li{
+  color: green;
+  list-style-type: none;
+}
+
+.active-users{
+  margin-top: 13px;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  margin-left: 5px;
+}
+
+.chatrooms{
+	margin-bottom: 20px;
+}
+
+.chatroom{
+	padding: 5px;
+}
+
+.chatroom-link{
+	color: black;
+	opacity: 0.7;
+}
+
+.chatroom-link:hover{
+  color: black;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.chatroom-header-wrapper{
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	padding: 0px;
+	padding-bottom: 3px;
+	margin-bottom: 8px;
+	margin-top: 12px;
+	font-weight: lighter;
+	font-size: 18px;
+}
+
+.chatroom-header{
+	margin: 0px;
+	padding: 0px;
+}
+
+.messages{
+  font-size: 13px;
+  font-weight: lighter;
+  margin-bottom: 40px;
+  background: #e8f4f8;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.message{
+  margin: 10px 10px;
+  border-radius: 10px;
+  color: #102c35;
+  letter-spacing: .5px;
+}
+
+.custom-container{
+	width: 400px;
+	margin: 0px auto;
+}
+
+.shared-links{
+	margin: 15px 0px;
+}
+
+#message_msg{
+  border-radius: 10px;
+  margin: 0px auto;
+}
+
+.custom-content-container{
+  width: 700px;
+  padding: 20px;
+  margin: 0px auto;
+}

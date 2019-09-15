@@ -11,6 +11,18 @@ require 'faker'
 
 puts "Just a second..."
 
+User.create(
+    email: 'thing1@site.com',
+    password: 'password',
+    username: 'thing1'
+	)
+
+User.create(
+    email: 'thing2@site.com',
+    password: 'password',
+    username: 'thing2'
+	)
+
 15.times do
 	User.create(
         email: Faker::Internet.email,

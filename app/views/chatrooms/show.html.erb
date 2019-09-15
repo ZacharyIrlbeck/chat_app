@@ -1,10 +1,12 @@
-<div class="container-fluid">
+<div class="custom-content-container">
 	<div class="row">
 		<div class="col-3">
 			<%= render partial: 'shared/users' %>
 		</div>
 		<div class="col">
-			<h2><%= @chatroom.name %></h2>
+			<div class="chatroom-header-wrapper">
+				<p class="chatroom-header"><%= @chatroom.name %></p>
+			</div>
 
 			<div class="messages" data-room="<%= @chatroom.id %>">
 				<% @chatroom.messages.each do |message| %>
@@ -13,7 +15,7 @@
 			</div>
 
 			<%= simple_form_for Message.new, remote: true do |form| %>
-		     <%= form.input :msg, label: false %>
+		     <%= form.input :msg, label: false, placeholder: "Insert personality here ;)" %>
 		     <%= form.hidden_field :chatroom_id, value: @chatroom.id %>
 			<% end %>
     </div>

@@ -1,21 +1,22 @@
-<div class="container-fluid">
+<div class="custom-content-container">
   <div class="row">
 		<div class="col-3">
 			<%= render partial: "shared/users" %>
 		</div>
 		<div class="col">
-			<h1>ChatRooms</h1>
-
-			<%= simple_form_for Chatroom.new, remote: true do |form| %>
-			  <%= form.input :name %>
-			  <%= form.submit %>
-			<% end %>
+			<div class="chatroom-header-wrapper">
+				<p class="chatroom-header">ChatRooms</p>
+			</div>
 
 			<div class="chatrooms">
 				<% @chatrooms.each do |chatroom| %>
 			    <%= render "chatrooms/chatroom_item", chatroom: chatroom %>
 				<% end %>
 			</div>
+
+			<%= simple_form_for Chatroom.new, remote: true do |form| %>
+			  <%= form.input :name, placeholder: 'Create A Chatroom', label: false %>
+			<% end %>
 		</div>  	
   </div>
 </div>
