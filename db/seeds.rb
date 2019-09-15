@@ -34,6 +34,7 @@ end
 10.times do
 	Chatroom.create(
         name: Faker::JapaneseMedia::SwordArtOnline.location,
+        user_id: rand(1..15)
 		)
 end
 

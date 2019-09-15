@@ -8,7 +8,9 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-  	@chatroom = Chatroom.create permitted_params
+  	@chatroom = Chatroom.new permitted_params
+    @chatroom.user = current_user
+    @chatroom.save
   end
 
   def destroy
